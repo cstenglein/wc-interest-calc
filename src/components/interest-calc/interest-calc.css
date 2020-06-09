@@ -1,0 +1,69 @@
+:host {
+  display: block;
+  border: 2px solid lightblue;
+  margin: 0 25%;
+}
+
+h2 {
+  text-align: center;
+}
+
+table {
+  width: 50%;
+  margin: 0 auto;
+}
+
+table td {
+  padding: 1%;
+}
+
+.submit {
+  padding: 1%;
+  text-align: center;
+}
+
+.submit button {
+  width: 40%;
+  padding: 0.5%;
+}
+
+.center {
+  text-align: center;
+}
+
+input:disabled {
+  border: 2px solid green;
+}
+
+/* TOOLTIP */
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border: 1px solid black; /* If you want dots under the hoverable text */
+  padding: 0.15rem 0.25rem;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 7rem;
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 0.5rem 0;
+  border-radius: 6px;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -3.5rem;
+  margin-bottom: 0.5rem;
+
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
