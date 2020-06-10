@@ -7,8 +7,7 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface InterestCalc {
-    }
-    interface InterestResult {
+        "checked": string;
     }
 }
 declare global {
@@ -18,25 +17,16 @@ declare global {
         prototype: HTMLInterestCalcElement;
         new (): HTMLInterestCalcElement;
     };
-    interface HTMLInterestResultElement extends Components.InterestResult, HTMLStencilElement {
-    }
-    var HTMLInterestResultElement: {
-        prototype: HTMLInterestResultElement;
-        new (): HTMLInterestResultElement;
-    };
     interface HTMLElementTagNameMap {
         "interest-calc": HTMLInterestCalcElement;
-        "interest-result": HTMLInterestResultElement;
     }
 }
 declare namespace LocalJSX {
     interface InterestCalc {
-    }
-    interface InterestResult {
+        "checked"?: string;
     }
     interface IntrinsicElements {
         "interest-calc": InterestCalc;
-        "interest-result": InterestResult;
     }
 }
 export { LocalJSX as JSX };
@@ -44,7 +34,6 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "interest-calc": LocalJSX.InterestCalc & JSXBase.HTMLAttributes<HTMLInterestCalcElement>;
-            "interest-result": LocalJSX.InterestResult & JSXBase.HTMLAttributes<HTMLInterestResultElement>;
         }
     }
 }

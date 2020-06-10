@@ -6,6 +6,6 @@ describe('interest-calc', () => {
     await page.setContent('<interest-calc></interest-calc>');
 
     const element = await page.find('interest-calc');
-    expect(element).toHaveClass('hydrated');
+    expect(element).toBeDefined();
   });
 });

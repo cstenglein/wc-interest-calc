@@ -17,6 +17,19 @@ table td {
   padding: 1%;
 }
 
+table input {
+  border: 1px solid black;
+  box-shadow: 3px 3px 1px 1px lightgray;
+  border-radius: 0.15rem;
+  text-align: right;
+}
+
+table input:disabled {
+  background: lightgray;
+  border-color: lightgray;
+  box-shadow: none;
+}
+
 .submit {
   padding: 1%;
   text-align: center;
@@ -29,10 +42,6 @@ table td {
 
 .center {
   text-align: center;
-}
-
-input:disabled {
-  border: 2px solid green;
 }
 
 /* TOOLTIP */
