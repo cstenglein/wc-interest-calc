@@ -6,34 +6,42 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface InterestCalc {
+    interface WcInterestCalc {
         "checked": string;
+        "duration": number;
+        "finalAmount": number;
+        "interest": number;
+        "principal": number;
     }
 }
 declare global {
-    interface HTMLInterestCalcElement extends Components.InterestCalc, HTMLStencilElement {
+    interface HTMLWcInterestCalcElement extends Components.WcInterestCalc, HTMLStencilElement {
     }
-    var HTMLInterestCalcElement: {
-        prototype: HTMLInterestCalcElement;
-        new (): HTMLInterestCalcElement;
+    var HTMLWcInterestCalcElement: {
+        prototype: HTMLWcInterestCalcElement;
+        new (): HTMLWcInterestCalcElement;
     };
     interface HTMLElementTagNameMap {
-        "interest-calc": HTMLInterestCalcElement;
+        "wc-interest-calc": HTMLWcInterestCalcElement;
     }
 }
 declare namespace LocalJSX {
-    interface InterestCalc {
+    interface WcInterestCalc {
         "checked"?: string;
+        "duration"?: number;
+        "finalAmount"?: number;
+        "interest"?: number;
+        "principal"?: number;
     }
     interface IntrinsicElements {
-        "interest-calc": InterestCalc;
+        "wc-interest-calc": WcInterestCalc;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "interest-calc": LocalJSX.InterestCalc & JSXBase.HTMLAttributes<HTMLInterestCalcElement>;
+            "wc-interest-calc": LocalJSX.WcInterestCalc & JSXBase.HTMLAttributes<HTMLWcInterestCalcElement>;
         }
     }
 }

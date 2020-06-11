@@ -1,51 +1,46 @@
 import { Component, ComponentInterface, h, State, Element, Prop } from '@stencil/core';
-import { calcStartAmount, calcInterest, calcDuration, calcEndAmount } from '../../utils/utils';
+import { calcInterest, calcDuration, calcPrincipal, calcFinalAmount } from '../../utils/utils';
 
 @Component({
-  tag: 'interest-calc',
+  tag: 'wc-interest-calc',
   styleUrl: 'interest-calc.css',
   shadow: true,
 })
 export class InterestCalc implements ComponentInterface {
   @State() value: string;
   @Element() el: HTMLElement;
-  @State() finalAmount: string;
-  @Prop() checked = '';
+  @Prop() checked = 'finalAmount';
+  @Prop({ reflect: true, mutable: true }) principal = 0;
+  @Prop({ reflect: true, mutable: true }) interest = 0;
+  @Prop({ reflect: true, mutable: true }) duration = 0;
+  @Prop({ reflect: true, mutable: true }) finalAmount = 0;
 
   handleSubmit(e: Event) {
     e.preventDefault();
-
-    const startAmount = +this.getInputElem('startAmount').value;
-    const interest = +this.getInputElem('interest').value;
-    const duration = +this.getInputElem('duration').value;
-    // const endAmount = +this.getInputElem("endAmount").value;
-    const checkedElem = this.getInputElem(this.checked);
+    // update values at time of submission
+    this.principal = +this.getInputElem('principal').value;
+    this.interest = +this.getInputElem('interest').value;
+    this.duration = +this.getInputElem('duration').value;
+    this.finalAmount = +this.getInputElem('finalAmount').value;
 
     switch (this.checked) {
-      case 'startAmount':
-        checkedElem.value = calcStartAmount();
+      case 'principal':
+        this.principal = calcPrincipal(this.interest, this.duration, this.finalAmount);
         break;
       case 'interest':
-        checkedElem.value = calcInterest();
+        this.interest = calcInterest(this.principal, this.duration, this.finalAmount);
         break;
       case 'duration':
-        checkedElem.value = calcDuration();
-        break;
-      case 'endAmount':
-        checkedElem.value = calcEndAmount(startAmount, interest, duration);
+        this.duration = calcDuration(this.principal, this.interest, this.finalAmount);
+        console.log(this.duration);
+      case 'finalAmount':
+        this.finalAmount = calcFinalAmount(this.principal, this.interest, this.duration);
         break;
     }
   }
 
-  componentWillLoad() {
-    if (!this.checked) {
-      this.checked = 'endAmount';
-    }
-  }
-
-  updateChecked() {
-    this.checked = (this.el.shadowRoot.querySelector('input[name="calcType"]:checked') as HTMLInputElement).value;
-    this.getInputElem(this.checked).value = '';
+  updateChecked(e: Event) {
+    this.checked = (e.target as HTMLInputElement).value;
   }
 
   getInputElem(id: string) {
@@ -55,16 +50,16 @@ export class InterestCalc implements ComponentInterface {
   render() {
     return [
       <form onSubmit={(e) => this.handleSubmit(e)}>
-        <h2>Zinsrechner</h2>
+        <h2>Interest Calculator</h2>
         <div class="center">
           <input
             type="radio"
-            id="startAmountRadio"
+            id="principalRadio"
             name="calcType"
-            value="startAmount"
+            value="principal"
             onClick={this.updateChecked.bind(this)}
           />
-          <label> Anfangskapital</label>
+          <label> Principal</label>
           <input
             type="radio"
             id="interestRadio"
@@ -72,7 +67,7 @@ export class InterestCalc implements ComponentInterface {
             value="interest"
             onClick={this.updateChecked.bind(this)}
           />
-          <label> Zinssatz</label>
+          <label> Interest</label>
           <input
             type="radio"
             id="durationRadio"
@@ -80,16 +75,16 @@ export class InterestCalc implements ComponentInterface {
             value="duration"
             onClick={this.updateChecked.bind(this)}
           />
-          <label> Laufzeit</label>
+          <label> Duration</label>
           <input
             type="radio"
-            id="endAmountRadio"
+            id="finalAmountRadio"
             name="calcType"
-            value="endAmount"
+            value="finalAmount"
             onClick={this.updateChecked.bind(this)}
             checked
           />
-          <label> Endkapital</label>
+          <label> End Amount</label>
         </div>
         <table>
           <tbody>
@@ -99,9 +94,9 @@ export class InterestCalc implements ComponentInterface {
                   ?<span class="tooltiptext">Tooltip text</span>
                 </div>
               </td>
-              <td>Anfangskapital</td>
+              <td>Principal</td>
               <td>
-                <input id="startAmount" disabled={this.checked === 'startAmount'} /> €
+                <input id="principal" disabled={this.checked === 'principal'} value={this.principal} /> €
               </td>
             </tr>
             <tr>
@@ -110,9 +105,9 @@ export class InterestCalc implements ComponentInterface {
                   ?<span class="tooltiptext">Tooltip text</span>
                 </div>
               </td>
-              <td>Zinssatz</td>
+              <td>Interest</td>
               <td>
-                <input id="interest" disabled={this.checked === 'interest'} /> % p.a.
+                <input id="interest" disabled={this.checked === 'interest'} value={this.interest} /> % p.a.
               </td>
             </tr>
             <tr>
@@ -121,9 +116,9 @@ export class InterestCalc implements ComponentInterface {
                   ?<span class="tooltiptext">Tooltip text</span>
                 </div>
               </td>
-              <td>Laufzeit</td>
+              <td>Duration</td>
               <td>
-                <input id="duration" disabled={this.checked === 'duration'} /> Jahre
+                <input id="duration" disabled={this.checked === 'duration'} value={this.duration} /> Jahre
               </td>
             </tr>
             <tr>
@@ -132,9 +127,9 @@ export class InterestCalc implements ComponentInterface {
                   ?<span class="tooltiptext">Tooltip text</span>
                 </div>
               </td>
-              <td>Endkapital</td>
+              <td>Final Amount</td>
               <td>
-                <input id="endAmount" disabled={this.checked === 'endAmount'} /> €
+                <input id="finalAmount" disabled={this.checked === 'finalAmount'} value={this.finalAmount} /> €
               </td>
             </tr>
           </tbody>
