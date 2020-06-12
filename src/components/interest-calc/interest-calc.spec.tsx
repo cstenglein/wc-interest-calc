@@ -5,7 +5,7 @@ describe('interest-calc', () => {
   it('renders', async () => {
     const page = await newSpecPage({
       components: [InterestCalc],
-      html: `<interest-calc></interest-calc>`,
+      html: `<wc-interest-calc></wc-interest-calc>`,
     });
     expect(page.root).toBeDefined();
   });

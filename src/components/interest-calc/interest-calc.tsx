@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, h, State, Element, Prop } from '@stencil/core';
+import { Component, ComponentInterface, h, Element, Prop } from '@stencil/core';
 import { calcInterest, calcDuration, calcPrincipal, calcFinalAmount } from '../../utils/utils';
 
 @Component({
@@ -7,7 +7,6 @@ import { calcInterest, calcDuration, calcPrincipal, calcFinalAmount } from '../.
   shadow: true,
 })
 export class InterestCalc implements ComponentInterface {
-  @State() value: string;
   @Element() el: HTMLElement;
   @Prop() checked = 'finalAmount';
   @Prop({ reflect: true, mutable: true }) principal = 0;
