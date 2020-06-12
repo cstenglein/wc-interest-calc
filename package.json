@@ -1,7 +1,8 @@
 {
-  "name": "interest-component",
-  "version": "0.0.1",
-  "description": "Stencil Component Starter",
+  "name": "wc-interest-calc",
+  "version": "1.0.0",
+  "description": "A simple compund interest calculator as web component",
+  "author": "Christoph Stenglein <christoph@christophstenglein.com> (https://christophstenglein.com/)",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "es2015": "dist/esm/index.mjs",

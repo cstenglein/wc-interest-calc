@@ -1,6 +1,6 @@
 :host {
   display: block;
-  border: 2px solid lightblue;
+  border: 1px solid black;
   padding: 0 2%;
   max-width: max-content;
 }
