@@ -1,20 +1,27 @@
 :host {
   display: block;
   border: 2px solid lightblue;
-  margin: 0 25%;
+  padding: 0 2%;
+  max-width: max-content;
 }
 
 h2 {
   text-align: center;
 }
 
+.radio {
+  padding: 2% 0 5% 0;
+}
+
 table {
-  width: 50%;
+  display: flex;
+  justify-content: center;
   margin: 0 auto;
 }
 
 table td {
-  padding: 1%;
+  padding: 3% 0;
+  margin-right: 5%;
 }
 
 table input {
@@ -38,6 +45,7 @@ table input:disabled {
 .submit button {
   width: 40%;
   padding: 0.5%;
+  margin-bottom: 1rem;
 }
 
 .center {

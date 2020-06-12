@@ -50,7 +50,7 @@ export class InterestCalc implements ComponentInterface {
     return [
       <form onSubmit={(e) => this.handleSubmit(e)}>
         <h2>Interest Calculator</h2>
-        <div class="center">
+        <div class="radio center">
           <input
             type="radio"
             id="principalRadio"
@@ -90,7 +90,7 @@ export class InterestCalc implements ComponentInterface {
             <tr>
               <td>Principal</td>
               <td>
-                <input id="principal" disabled={this.checked === 'principal'} value={this.principal} /> €
+                <input id="principal" disabled={this.checked === 'principal'} value={this.principal} /> $
               </td>
             </tr>
             <tr>
@@ -102,19 +102,19 @@ export class InterestCalc implements ComponentInterface {
             <tr>
               <td>Duration</td>
               <td>
-                <input id="duration" disabled={this.checked === 'duration'} value={this.duration} /> Jahre
+                <input id="duration" disabled={this.checked === 'duration'} value={this.duration} /> Years
               </td>
             </tr>
             <tr>
               <td>Final Amount</td>
               <td>
-                <input id="finalAmount" disabled={this.checked === 'finalAmount'} value={this.finalAmount} /> €
+                <input id="finalAmount" disabled={this.checked === 'finalAmount'} value={this.finalAmount} /> $
               </td>
             </tr>
           </tbody>
         </table>
         <div class="submit">
-          <button type="submit">Berechnen</button>
+          <button type="submit">Calculate</button>
         </div>
       </form>,
     ];
