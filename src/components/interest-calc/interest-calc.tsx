@@ -88,44 +88,24 @@ export class InterestCalc implements ComponentInterface {
         <table>
           <tbody>
             <tr>
-              <td>
-                <div class="tooltip">
-                  ?<span class="tooltiptext">Tooltip text</span>
-                </div>
-              </td>
               <td>Principal</td>
               <td>
                 <input id="principal" disabled={this.checked === 'principal'} value={this.principal} /> €
               </td>
             </tr>
             <tr>
-              <td>
-                <div class="tooltip">
-                  ?<span class="tooltiptext">Tooltip text</span>
-                </div>
-              </td>
               <td>Interest</td>
               <td>
                 <input id="interest" disabled={this.checked === 'interest'} value={this.interest} /> % p.a.
               </td>
             </tr>
             <tr>
-              <td>
-                <div class="tooltip">
-                  ?<span class="tooltiptext">Tooltip text</span>
-                </div>
-              </td>
               <td>Duration</td>
               <td>
                 <input id="duration" disabled={this.checked === 'duration'} value={this.duration} /> Jahre
               </td>
             </tr>
             <tr>
-              <td>
-                <div class="tooltip">
-                  ?<span class="tooltiptext">Tooltip text</span>
-                </div>
-              </td>
               <td>Final Amount</td>
               <td>
                 <input id="finalAmount" disabled={this.checked === 'finalAmount'} value={this.finalAmount} /> €
