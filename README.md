@@ -24,4 +24,4 @@ Possible values for `checked` are:
 ## License
 
 - [Stencil](https://github.com/ionic-team/stencil) is licenced unter MIT
-- My code is licenced unter [GPLv3](https://raw.githubusercontent.com/ChrisSte/interest-calc-wc/master/LICENSE.md)
+- My code is licenced unter [GPLv3](https://raw.githubusercontent.com/ChrisSte/wc-interest-calc/master/LICENSE)
