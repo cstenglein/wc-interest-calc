@@ -49,7 +49,6 @@ export class InterestCalc implements ComponentInterface {
   render() {
     return [
       <form onSubmit={(e) => this.handleSubmit(e)}>
-        <h2>Interest Calculator</h2>
         <div class="radio center">
           <input
             type="radio"
