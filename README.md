@@ -6,7 +6,11 @@ A simple compount interest calculator built as a web component.
 
 You can calculate the principal, interest, duration or the final amount based on the other values.
 
-Selector is `wc-interest-calc`.
+## How to use
+
+Include the `interest-component.js` script into your page.
+
+Then use the `wc-interest-calc` selector to use the interest calculator in your page.
 
 ## Properties
 
