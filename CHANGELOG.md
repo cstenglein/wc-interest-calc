@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.2
+
+- republish of 1.1.0
+
 ## 1.1.1
 
 - republish of 1.1.0
