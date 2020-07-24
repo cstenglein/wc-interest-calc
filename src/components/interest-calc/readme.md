@@ -14,6 +14,7 @@
 | `finalAmount` | `final-amount` |             | `number` | `0`             |
 | `interest`    | `interest`     |             | `number` | `0`             |
 | `principal`   | `principal`    |             | `number` | `0`             |
+| `symbol`      | `symbol`       |             | `string` | `'$'`           |
 
 
 ----------------------------------------------

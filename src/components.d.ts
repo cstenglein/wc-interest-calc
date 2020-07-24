@@ -12,6 +12,7 @@ export namespace Components {
         "finalAmount": number;
         "interest": number;
         "principal": number;
+        "symbol": string;
     }
 }
 declare global {
@@ -32,6 +33,7 @@ declare namespace LocalJSX {
         "finalAmount"?: number;
         "interest"?: number;
         "principal"?: number;
+        "symbol"?: string;
     }
     interface IntrinsicElements {
         "wc-interest-calc": WcInterestCalc;

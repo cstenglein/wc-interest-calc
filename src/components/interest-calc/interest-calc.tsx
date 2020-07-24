@@ -13,6 +13,7 @@ export class InterestCalc implements ComponentInterface {
   @Prop({ reflect: true, mutable: true }) interest = 0;
   @Prop({ reflect: true, mutable: true }) duration = 0;
   @Prop({ reflect: true, mutable: true }) finalAmount = 0;
+  @Prop({ reflect: true, mutable: true }) symbol = '$';
 
   handleSubmit(e: Event) {
     e.preventDefault();
@@ -22,27 +23,29 @@ export class InterestCalc implements ComponentInterface {
     this.duration = +this.getInputElem('duration').value;
     this.finalAmount = +this.getInputElem('finalAmount').value;
 
+    const interval = +(this.el.shadowRoot.querySelector('#interval') as HTMLSelectElement).value;
+
     switch (this.checked) {
       case 'principal':
-        this.principal = calcPrincipal(this.interest, this.duration, this.finalAmount);
+        this.principal = calcPrincipal(this.interest, this.duration, this.finalAmount, interval);
         break;
       case 'interest':
-        this.interest = calcInterest(this.principal, this.duration, this.finalAmount);
+        this.interest = calcInterest(this.principal, this.duration, this.finalAmount, interval);
         break;
       case 'duration':
-        this.duration = calcDuration(this.principal, this.interest, this.finalAmount);
+        this.duration = calcDuration(this.principal, this.interest, this.finalAmount, interval);
         console.log(this.duration);
       case 'finalAmount':
-        this.finalAmount = calcFinalAmount(this.principal, this.interest, this.duration);
+        this.finalAmount = calcFinalAmount(this.principal, this.interest, this.duration, interval);
         break;
     }
   }
 
-  updateChecked(e: Event) {
+  updateChecked(e: Event): void {
     this.checked = (e.target as HTMLInputElement).value;
   }
 
-  getInputElem(id: string) {
+  getInputElem(id: string): HTMLInputElement | null {
     return this.el.shadowRoot.getElementById(id) as HTMLInputElement;
   }
 
@@ -84,12 +87,23 @@ export class InterestCalc implements ComponentInterface {
           />
           <label> End Amount</label>
         </div>
+        <div class="center">
+          <span>Interest period: </span>
+          <select id="interval" name="interval">
+            <option value="1" selected>
+              Annual
+            </option>
+            <option value="2">Semi-Annual</option>
+            <option value="4">Quarterly</option>
+            <option value="12">Monthly</option>
+          </select>
+        </div>
         <table>
           <tbody>
             <tr>
               <td>Principal</td>
               <td>
-                <input id="principal" disabled={this.checked === 'principal'} value={this.principal} /> $
+                <input id="principal" disabled={this.checked === 'principal'} value={this.principal} /> {this.symbol}
               </td>
             </tr>
             <tr>
@@ -107,7 +121,8 @@ export class InterestCalc implements ComponentInterface {
             <tr>
               <td>Final Amount</td>
               <td>
-                <input id="finalAmount" disabled={this.checked === 'finalAmount'} value={this.finalAmount} /> $
+                <input id="finalAmount" disabled={this.checked === 'finalAmount'} value={this.finalAmount} />{' '}
+                {this.symbol}
               </td>
             </tr>
           </tbody>

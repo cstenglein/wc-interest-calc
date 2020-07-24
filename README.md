@@ -21,6 +21,7 @@ Then use the `wc-interest-calc` selector to use the interest calculator in your 
 | `finalAmount` | `final-amount` | final Amount after interest is applied to the principal                          | `number` | `0`             |
 | `interest`    | `interest`     | interest                                                                         | `number` | `0`             |
 | `principal`   | `principal`    | principal (starting Amount)                                                      | `number` | `0`             |
+| `symbol`      | `symbol`       | symbol used next to the principal and final Amount input                         | `string` | `$`             |
 
 Possible values for `checked` are:
 `'principal'`, `'interest'`, `'duration'`, `'finalAmount'`
