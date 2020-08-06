@@ -30,5 +30,6 @@
     "jest-cli": "^26.1.0",
     "puppeteer": "^5.2.1"
   },
-  "license": "GPLv3"
+  "license": "GPLv3",
+  "repository": "github:ChrisSte/wc-interest-calc"
 }
