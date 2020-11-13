@@ -9,6 +9,7 @@ import { calcInterest, calcDuration, calcPrincipal, calcFinalAmount } from '../.
 export class InterestCalc implements ComponentInterface {
   @Element() el: HTMLElement;
   @Prop() checked = 'finalAmount';
+  @Prop() headerText = 'Interest Calculator';
   @Prop({ reflect: true, mutable: true }) principal = 0;
   @Prop({ reflect: true, mutable: true }) interest = 0;
   @Prop({ reflect: true, mutable: true }) duration = 0;
@@ -51,6 +52,7 @@ export class InterestCalc implements ComponentInterface {
 
   render() {
     return [
+      <h2 class="center">{this.headerText}</h2>,
       <form onSubmit={(e) => this.handleSubmit(e)}>
         <div class="radio center">
           <input

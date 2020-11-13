@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.0.0
+
+- update Stencil to 2.3
+- dropped IE11 support
+- added header
+- change license to MIT
+
 ## 1.1.2
 
 - republish of 1.1.0

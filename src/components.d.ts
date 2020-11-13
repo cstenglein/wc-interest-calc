@@ -10,6 +10,7 @@ export namespace Components {
         "checked": string;
         "duration": number;
         "finalAmount": number;
+        "headerText": string;
         "interest": number;
         "principal": number;
         "symbol": string;
@@ -31,6 +32,7 @@ declare namespace LocalJSX {
         "checked"?: string;
         "duration"?: number;
         "finalAmount"?: number;
+        "headerText"?: string;
         "interest"?: number;
         "principal"?: number;
         "symbol"?: string;

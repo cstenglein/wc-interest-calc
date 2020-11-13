@@ -1,12 +1,12 @@
 {
   "name": "wc-interest-calc",
-  "version": "1.1.2",
+  "version": "2.0.0",
   "description": "A simple compund interest calculator as web component",
   "author": "Christoph Stenglein <christoph@christophstenglein.com> (https://christophstenglein.com/)",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "es2015": "dist/esm/index.mjs",
-  "es2017": "dist/esm/index.mjs",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.js",
+  "es2015": "dist/esm/index.js",
+  "es2017": "dist/esm/index.js",
   "types": "dist/types/index.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
@@ -23,12 +23,12 @@
     "generate": "stencil generate"
   },
   "devDependencies": {
-    "@stencil/core": "^1.17.0",
-    "@types/jest": "^26.0.7",
-    "@types/puppeteer": "^3.0.1",
-    "jest": "^26.1.0",
-    "jest-cli": "^26.1.0",
-    "puppeteer": "^5.2.1"
+    "@stencil/core": "^2.3.0",
+    "@types/jest": "^26.0.15",
+    "@types/puppeteer": "^5.4.0",
+    "jest": "^26.6.3",
+    "jest-cli": "^26.6.3",
+    "puppeteer": "^5.4.1"
   },
   "license": "GPLv3",
   "repository": "github:ChrisSte/wc-interest-calc"
