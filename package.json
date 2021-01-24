@@ -1,6 +1,6 @@
 {
   "name": "wc-interest-calc",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "A simple compund interest calculator as web component",
   "author": "Christoph Stenglein <christoph@christophstenglein.com> (https://christophstenglein.com/)",
   "main": "dist/index.cjs.js",

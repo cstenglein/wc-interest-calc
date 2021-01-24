@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.1.0
+
+- use flex layout instead of a table
+- use `type="number"` on inputs
+- update dependencies
+
 ## 2.0.0
 
 - update Stencil to 2.3

@@ -65,7 +65,7 @@ export class InterestCalc implements ComponentInterface {
           <label> Principal</label>
           <input
             type="radio"
-            id="interestRadio"
+            id="interesdivadio"
             name="calcType"
             value="interest"
             onClick={this.updateChecked.bind(this)}
@@ -81,7 +81,7 @@ export class InterestCalc implements ComponentInterface {
           <label> Duration</label>
           <input
             type="radio"
-            id="finalAmountRadio"
+            id="finalAmoundivadio"
             name="calcType"
             value="finalAmount"
             onClick={this.updateChecked.bind(this)}
@@ -100,35 +100,36 @@ export class InterestCalc implements ComponentInterface {
             <option value="12">Monthly</option>
           </select>
         </div>
-        <table>
-          <tbody>
-            <tr>
-              <td>Principal</td>
-              <td>
-                <input id="principal" disabled={this.checked === 'principal'} value={this.principal} /> {this.symbol}
-              </td>
-            </tr>
-            <tr>
-              <td>Interest</td>
-              <td>
-                <input id="interest" disabled={this.checked === 'interest'} value={this.interest} /> % p.a.
-              </td>
-            </tr>
-            <tr>
-              <td>Duration</td>
-              <td>
-                <input id="duration" disabled={this.checked === 'duration'} value={this.duration} /> Years
-              </td>
-            </tr>
-            <tr>
-              <td>Final Amount</td>
-              <td>
-                <input id="finalAmount" disabled={this.checked === 'finalAmount'} value={this.finalAmount} />{' '}
-                {this.symbol}
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="parent-container">
+          <div>
+            <div>Principal</div>
+            <div class="input-container">
+              <input id="principal" type="number" step="any" disabled={this.checked === 'principal'} value={this.principal} />
+              <div class="symbol">{this.symbol}</div>
+            </div>
+          </div>
+          <div>
+            <div>Interest</div>
+            <div class="input-container">
+              <input id="interest" type="number" step="any" disabled={this.checked === 'interest'} value={this.interest} />
+              <div class="symbol">%</div>
+            </div>
+          </div>
+          <div>
+            <div>Duration</div>
+            <div class="input-container">
+              <input id="duration" type="number" step="any" disabled={this.checked === 'duration'} value={this.duration} />
+              <div class="symbol">Y</div>
+            </div>
+          </div>
+          <div>
+            <div>Final Amount</div>
+            <div class="input-container">
+              <input id="finalAmount" type="number" step="any" disabled={this.checked === 'finalAmount'} value={this.finalAmount} />
+              <div class="symbol">{this.symbol}</div>
+            </div>
+          </div>
+        </div>
         <div class="submit">
           <button type="submit">Calculate</button>
         </div>
